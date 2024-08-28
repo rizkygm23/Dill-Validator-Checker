@@ -4,10 +4,13 @@ require('dotenv').config();
 
 // Buat koneksi ke MySQL
 const pool = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME
+  host: 'bt8d8ug5hpoxdwsukll6-mysql.services.clever-cloud.com',
+  user: 'utrs1etdedrsx5og',
+  password: 'nGaXw8vAZUlBJgzNpdQw',
+  database: 'bt8d8ug5hpoxdwsukll6',
+  waitForConnections: true,
+  connectionLimit: 10, // Jumlah maksimum koneksi yang dapat dibuat oleh pool
+  queueLimit: 3 
 });
 
 const SearchValidator = async (pubkey) => {
