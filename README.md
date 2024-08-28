@@ -2,6 +2,11 @@
 
 Dill Validator Checker is a Node.js application that uses Puppeteer to scrape validator data.
 
+## Prerequisite
+
+Make sure you have Node.js 20.x installed. You can download it from the official Node.js website.
+https://nodejs.org/
+
 ## Steps to Run This Project
 
 Follow these steps to clone, install dependencies, and run the project on your local environment.
