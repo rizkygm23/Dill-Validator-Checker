@@ -1,0 +1,23 @@
+/* Style untuk halaman */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  

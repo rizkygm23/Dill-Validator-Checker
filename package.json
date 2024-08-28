@@ -1,0 +1,33 @@
+{
+  "name": "scrape",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node api/server.js",
+    "build": "node api/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/node": "^3.2.8",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.3",
+    "chrome-aws-lambda": "^10.1.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "fs": "^0.0.1-security",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.0",
+    "path": "^0.12.7",
+    "puppeteer": "^23.2.0",
+    "puppeteer-core": "^10.4.0",
+    "url": "^0.11.4"
+  }
+}
