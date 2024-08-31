@@ -5,17 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Validator Search</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    /* Tambahkan gaya CSS khusus untuk memotong teks panjang */
+    .break-word {
+      word-break: break-all; /* Memaksa pemotongan kata jika terlalu panjang */
+      overflow-wrap: anywhere; /* Mengizinkan pemotongan di mana saja */
+    }
+  </style>
 </head>
 <body>
   <div class="container mt-5">
     <h1 class="mb-4">Search Validator</h1>
     
     <form id="searchForm" class="row mb-4">
-      <div class="col-12 col-md-8 mb-3">
+      <div class="col-12 col-md-8 col-lg-6 mb-3">
         <label class="form-label" for="pubkey">Pubkey:</label>
         <input type="text" id="pubkey" class="form-control" name="pubkey" placeholder="Enter Full Pubkey e.g 0x8feda7dd754c63565098f85c181af51e8625a9251a6bdd3447184ea6498519bc489927598ee806c686a4fdcce693c1eb" required>
       </div>
-      <div class="col-12 col-md-4 d-flex align-items-end mb-3">
+      <div class="col-12 col-md-4 col-lg-3 d-flex align-items-end mb-3">
         <button type="submit" class="btn btn-primary w-100">Search</button>
       </div>
     </form>
@@ -35,7 +42,7 @@
         <tbody>
           <% validators.forEach(validator => { %>
             <tr>
-              <td><%= validator.pubkey %></td>
+              <td class="break-word"><%= validator.pubkey %></td>
               <td><%= validator.balance %></td>
               <td><%= validator.last_balance %></td>
               <td><%= status %></td>
@@ -47,4 +54,37 @@
     <p> Created by Discord : @rizzgm</p>
   </div>
   
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Menghindari form submit default
+      const pubkey = document.getElementById('pubkey').value;
+
+      fetch('/search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+          pubkey: pubkey
+        })
+      })
+      .then(response => {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw new Error('Network response was not ok.');
+        }
+      })
+      .then(data => {
+        console.log(data); // Handle response data
+        // Optionally, redirect or update UI
+        window.location.href = `/?pubkey=${encodeURIComponent(pubkey)}`;
+      })
+      .catch(error => {
+        console.error('There was a problem with your fetch operation:', error);
+      });
+    });
+  </script>
+</body>
+</html>
