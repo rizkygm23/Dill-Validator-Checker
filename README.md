@@ -1,3 +1,9 @@
+
+## Notes ⚠️
+### 1. The database is publicly exposed; please use it responsibly.
+### 2. Please enter your full pubkey. If you are using this application for the first time, enter it twice at different times to observe changes in your validator’s balance.
+### 3. Recomended use PC for best experience. UI not responsive if you using small screen
+
 # Dill Validator Checker
 
 Dill Validator Checker is a Node.js application that uses Puppeteer to scrape validator data.
@@ -33,9 +39,7 @@ npm run start
 localhost:3000
 ```
 
-## Notes ⚠️
-### 1. The database is publicly exposed; please use it responsibly.
-### 2. Please enter your full pubkey. If you are using this application for the first time, enter it twice at different times to observe changes in your validator’s balance.
+
 
 
 
