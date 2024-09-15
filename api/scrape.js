@@ -34,7 +34,7 @@ const SearchValidator = async (pubkey) => {
     const page = await browser.newPage();
 
     // Navigasi ke halaman yang diinginkan dengan pubkey
-    await page.goto(`https://andes.dill.xyz/validators?p=50&ps=25&pubkey=${pubkey}`);
+    await page.goto(`https://alps.dill.xyz/validators?p=3&ps=25&pubkey=${pubkey}`);
     console.log('Navigated to page');
 
     // Tunggu hingga elemen balance tersedia di halaman
@@ -89,5 +89,6 @@ const SearchValidator = async (pubkey) => {
     }
   }
 };
+   
 
 module.exports = SearchValidator;
